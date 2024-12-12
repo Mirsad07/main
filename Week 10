@@ -90,5 +90,11 @@ System.out.println("Triangle correct");
 	}
   }
 
+Write a program named ReplaceText that replaces all occurrences of a string in a text
+file with a new string and saves the change into a new file.. The file name and strings
+are entered from the user.
+Replace Text Part 2
+ReplaceText.java, is a program that replaces text in a source file and saves the change into
+a new file. Revise the above program to save the change into the original file.
 
 
