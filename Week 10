@@ -38,3 +38,57 @@ public class DisplayMonth {
 		}
 	}
 }
+
+
+IllegalTriangleException
+Define the Triangle class with three sides. In a triangle, the sum of any two sides is greater
+than the other side. The Triangle class must adhere to this rule. Create the
+IllegalTriangleException class, and modify the constructor of the Triangle class to throw an
+IllegalTriangleException object if a triangle is created with sides that violate the rule:
+package week10;
+
+public class IllegalTriangleException extends Exception {
+public IllegalTriangleException(int a, int b, int c) {
+	System.out.println("Incorrect");
+    }
+}
+
+package week10;
+
+public class Triangle {
+private int a, b, c;
+public Triangle(int a, int b, int c)throws IllegalTriangleException
+{
+	if(a+b<c|| b+c<a||a+c<b)
+throw new IllegalTriangleException(a, b, c);
+	else
+this.a=a;
+this.b=b;
+this.c=c;
+}
+public int getSideA() {return a;}
+public int getSideB() {return b;}
+public int getSideC() {return c;}
+
+}
+
+package week10;
+
+public class TestTriangle {
+	
+public static void main(String [] args)
+{
+	try {
+		Triangle triangle1=new Triangle(2, 2, 10);
+System.out.println("Triangle correct");
+	}
+	catch(IllegalTriangleException ex)
+	{ 
+		System.out.println(ex.toString());
+	}
+	
+	}
+  }
+
+
+
