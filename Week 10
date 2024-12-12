@@ -26,7 +26,59 @@ public class DisplayMonth {
 		System.out.println("The number of days for " +
 		months [month-1]+" is "+
 		days[month-1]);
-		}
+		
+
+
+package week10;
+
+import java.util.Scanner;
+import java.io.File;
+import java.io.PrintWriter;
+public class replaceText {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Get source file name
+        System.out.println("Enter the source file name");
+        String source = input.nextLine();
+        
+        File sourceFile = new File(source);
+        if (!sourceFile.exists()) {
+            System.out.println("This file does not exist");
+            System.exit(0);
+        }
+
+        // Get target file name
+        System.out.println("Enter the target file name");
+        String target = input.nextLine();
+        
+        File targetFile = new File(target);
+        if (!targetFile.exists()) {
+            System.out.println("The target file does not exist");
+            System.exit(0);
+        }
+
+        // Get the old string to replace
+        System.out.println("Enter the old string to be replaced");
+        String oldS = input.nextLine();
+        
+        // Get the new string to replace the old string
+        System.out.println("Enter the new string to replace the old one");
+        String newS = input.nextLine();
+
+        // Perform the replacement and write to the target file
+        try (Scanner inputSource = new Scanner(sourceFile);
+             PrintWriter outputSource = new PrintWriter(targetFile)) {
+            while (inputSource.hasNextLine()) {
+                String s1 = inputSource.nextLine();
+                String s2 = s1.replace(oldS, newS);
+                outputSource.println(s2);
+            }
+        } catch (Exception e) {
+            System.out.println("No files were found");
+        }
+    }
+}
 		catch(ArrayIndexOutOfBoundsException e)
 		{
 			System.out.println("The month should be a number between 1 and 12");
