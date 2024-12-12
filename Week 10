@@ -1,0 +1,40 @@
+Using the two arrays shown below, write a program that prompts the user to enter an
+integer between 1 and 12 and then displays the months and its number of days
+corresponding to the integer entered. Your program should display “wrong number” if
+the user enters a wrong number by catching ArrayIndexOutOfBoundsException.
+InputMismatchException
+The previous program works well as long as the user enters an integer. Otherwise, you
+may get another kind of exception. For instance, if you use nextInt() of Scanner, you could
+have an InputMismatchException. Modify it to prevent users entering anything other
+than an integer.
+
+package week10;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+public class DisplayMonth {
+	public static void main(String[]args)
+	{
+		String [] months= {"January","February",
+				"March","April","May","June","July",
+				"August","September","October","November","December"};
+				
+		int[]days= {31, 28, 31, 30,31,30,31,30,31};
+     Scanner input=new Scanner(System.in);
+		try {
+		System.out.println("Enter the month");
+		int month=input.nextInt();
+		System.out.println("The number of days for " +
+		months [month-1]+" is "+
+		days[month-1]);
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println("The month should be a number between 1 and 12");
+			
+	     }
+		catch(InputMismatchException e)
+		{
+			System.out.println("Month should be a number");
+		}
+	}
+}
